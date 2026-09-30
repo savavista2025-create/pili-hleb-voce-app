@@ -498,51 +498,141 @@ export default function Page() {
         )}
 
         {step === "login" && (
-          <div style={{ maxWidth: 520, margin: "40px auto" }}>
-            <div className="titleBlock">
-              <p>PRIJAVA RADNIKA</p>
-              <h1>Otpis voća i povrća</h1>
-              <span>Unesi korisničko ime i šifru. Prodavnica se automatski vezuje za korisnika.</span>
-            </div>
+          <div
+            style={{
+              minHeight: "calc(100vh - 110px)",
+              display: "grid",
+              placeItems: "center",
+              padding: "28px 16px 48px",
+              background:
+                "radial-gradient(circle at 20% 20%, rgba(255,145,77,.16), transparent 32%), radial-gradient(circle at 85% 15%, rgba(113,58,180,.12), transparent 30%)",
+            }}
+          >
+            <div
+              style={{
+                width: "min(470px, 100%)",
+                background: "#ffffff",
+                border: "1px solid #e5e7eb",
+                borderRadius: 28,
+                padding: "28px 26px 26px",
+                boxShadow: "0 24px 70px rgba(15,23,42,.12)",
+              }}
+            >
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  marginBottom: 10,
+                }}
+              >
+                <img
+                  src="/pili-logo.png"
+                  alt="PILI logo"
+                  style={{
+                    width: "min(280px, 78vw)",
+                    maxHeight: 150,
+                    objectFit: "contain",
+                    display: "block",
+                  }}
+                />
+              </div>
 
-            <div style={{
-              background: "#fff",
-              border: "1px solid #dbe3ef",
-              borderRadius: 22,
-              padding: 22,
-              boxShadow: "0 12px 35px rgba(15,23,42,.08)"
-            }}>
-              <label style={{ display: "block", fontWeight: 800, marginBottom: 8 }}>
-                Korisničko ime
-              </label>
-              <input
-                className="adminPassInput"
-                type="text"
-                autoCapitalize="none"
-                autoCorrect="off"
-                placeholder="npr. bjelic.biljana"
-                value={workerUsername}
-                onChange={(e) => setWorkerUsername(e.target.value)}
-              />
+              <div style={{ textAlign: "center", marginBottom: 24 }}>
+                <div
+                  style={{
+                    fontSize: 12,
+                    fontWeight: 900,
+                    letterSpacing: ".16em",
+                    color: "#6b7280",
+                    marginBottom: 7,
+                  }}
+                >
+                  PRIJAVA RADNIKA
+                </div>
+                <h1
+                  style={{
+                    margin: 0,
+                    fontSize: "clamp(28px, 5vw, 38px)",
+                    lineHeight: 1.05,
+                    color: "#111827",
+                  }}
+                >
+                  Otpis voća i povrća
+                </h1>
+              </div>
 
-              <label style={{ display: "block", fontWeight: 800, margin: "16px 0 8px" }}>
-                Šifra
-              </label>
-              <input
-                className="adminPassInput"
-                type="password"
-                inputMode="numeric"
-                placeholder="1234"
-                value={workerPin}
-                onChange={(e) => setWorkerPin(e.target.value)}
-                onKeyDown={(e) => e.key === "Enter" && loginWorker()}
-              />
+              <div style={{ marginBottom: 15 }}>
+                <label
+                  style={{
+                    display: "block",
+                    fontWeight: 800,
+                    color: "#111827",
+                    marginBottom: 7,
+                  }}
+                >
+                  Korisničko ime
+                </label>
+                <input
+                  className="adminPassInput"
+                  type="text"
+                  autoCapitalize="none"
+                  autoCorrect="off"
+                  value={workerUsername}
+                  onChange={(e) => setWorkerUsername(e.target.value)}
+                  style={{
+                    width: "100%",
+                    minHeight: 56,
+                    borderRadius: 15,
+                    border: "1px solid #d1d5db",
+                    padding: "0 16px",
+                    fontSize: 18,
+                    background: "#f9fafb",
+                  }}
+                />
+              </div>
+
+              <div style={{ marginBottom: 20 }}>
+                <label
+                  style={{
+                    display: "block",
+                    fontWeight: 800,
+                    color: "#111827",
+                    marginBottom: 7,
+                  }}
+                >
+                  Šifra
+                </label>
+                <input
+                  className="adminPassInput"
+                  type="password"
+                  inputMode="numeric"
+                  value={workerPin}
+                  onChange={(e) => setWorkerPin(e.target.value)}
+                  onKeyDown={(e) => e.key === "Enter" && loginWorker()}
+                  style={{
+                    width: "100%",
+                    minHeight: 56,
+                    borderRadius: 15,
+                    border: "1px solid #d1d5db",
+                    padding: "0 16px",
+                    fontSize: 18,
+                    background: "#f9fafb",
+                  }}
+                />
+              </div>
 
               <button
                 className="saveBtn"
                 disabled={workerLoginLoading}
                 onClick={loginWorker}
-                style={{ marginTop: 18 }}
+                style={{
+                  width: "100%",
+                  minHeight: 58,
+                  borderRadius: 16,
+                  fontSize: 17,
+                  fontWeight: 900,
+                  letterSpacing: ".04em",
+                }}
               >
                 {workerLoginLoading ? "PRIJAVA..." : "ULAZ"}
               </button>
